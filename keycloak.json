@@ -1,0 +1,10 @@
+{
+  "realm": "moh_applications",
+  "auth-server-url": "https://common-logon-dev.hlth.gov.bc.ca/auth/",
+  "ssl-required": "all",
+  "resource": "IEN",
+  "public-client": true,
+  "verify-token-audience": true,
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
+}

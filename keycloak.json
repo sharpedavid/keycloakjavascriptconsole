@@ -1,5 +1,5 @@
 {
-  "realm": "idir_aad",
+  "realm": "phsa_aad",
   "auth-server-url": "https://common-logon-dev.hlth.gov.bc.ca/auth/",
   "ssl-required": "all",
   "resource": "JAVASCRIPT_CONSOLE",

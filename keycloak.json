@@ -1,5 +1,5 @@
 {
-  "realm": "phsa_aad",
+  "realm": "moh_applications",
   "auth-server-url": "https://common-logon-dev.hlth.gov.bc.ca/auth/",
   "ssl-required": "all",
   "resource": "JAVASCRIPT_CONSOLE",

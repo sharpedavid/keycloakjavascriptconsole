@@ -1,5 +1,5 @@
 {
-  "realm": "moh_applications",
+  "realm": "bcsc",
   "auth-server-url": "https://common-logon-test.hlth.gov.bc.ca/auth/",
   "ssl-required": "all",
   "resource": "JAVASCRIPT_CONSOLE",

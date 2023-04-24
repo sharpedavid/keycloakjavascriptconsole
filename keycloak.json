@@ -1,8 +1,8 @@
 {
-  "realm": "bcsc",
+  "realm": "moh_applications",
   "auth-server-url": "https://common-logon-test.hlth.gov.bc.ca/auth/",
   "ssl-required": "all",
-  "resource": "JAVASCRIPT_CONSOLE",
+  "resource": "DMFT-WEBAPP",
   "public-client": true,
   "verify-token-audience": true,
   "use-resource-role-mappings": true,

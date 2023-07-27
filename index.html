@@ -41,7 +41,7 @@
     <button onclick="output(keycloak.createLogoutUrl())">Show Logout URL</button>
     <button onclick="output(keycloak.createRegisterUrl())">Show Register URL</button>
     <button onclick="output(keycloak.createAccountUrl())">Show Account URL</button>
-
+    <button onclick="output(loadIdpToken())">Get IDP Tokens</button>
 </div>
 
 <h2>Result</h2>
@@ -80,6 +80,35 @@
 
         req.send('{"email":"myemail@foo.bar","firstName":"test","lastName":"bar"}');
     }
+
+    // https://www.keycloak.org/docs/latest/server_admin/#retrieving-external-idp-tokens
+    function loadIdpToken() {
+        var url = `${keycloak.authServerUrl}realms/${keycloak.realm}/broker/${keycloak.realm}/token`
+        var req = new XMLHttpRequest();
+        req.open('GET', url, true);
+        req.setRequestHeader('Accept', 'application/json');
+        req.setRequestHeader('Content-Type', 'application/json');
+        req.setRequestHeader('Authorization', 'bearer ' + keycloak.token);
+
+        req.onreadystatechange = function () {
+            if (req.readyState == 4) {
+                if (req.status == 200) {
+                    let formattedTokens = []
+                    let jsonResponse = JSON.parse(req.response);
+                    for (let v of [jsonResponse.access_token, jsonResponse.id_token]) {
+                        let token = JSON.parse(atob(v.split('.')[1]))
+                        formattedTokens.push(JSON.stringify(token, null, 4))
+                    }
+                    output('Access token: \n\n' + formattedTokens.join('\n\nID token:\n\n'))
+                } else {
+                    output('Failed');
+                }
+            }
+        }
+
+        req.send()
+    }
+
 
     function loadUserInfo() {
         keycloak.loadUserInfo().success(function(userInfo) {

@@ -3,7 +3,7 @@
   "auth-server-url": "https://common-logon-test.hlth.gov.bc.ca/auth/",
   "ssl-required": "all",
   "resource": "LRA-DEV",
-  "public-client": true,
+  "public-client": false,
   "verify-token-audience": true,
   "use-resource-role-mappings": true,
   "confidential-port": 0

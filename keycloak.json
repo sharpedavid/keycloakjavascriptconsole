@@ -1,5 +1,5 @@
 {
-  "realm": "moh_applications",
+  "realm": "idir_aad",
   "auth-server-url": "https://common-logon-test.hlth.gov.bc.ca/auth/",
   "ssl-required": "all",
   "resource": "DELETEME",

@@ -1,8 +1,8 @@
 {
-  "realm": "idir_aad",
-  "auth-server-url": "https://common-logon.hlth.gov.bc.ca/auth/",
+  "realm": "moh_applications",
+  "auth-server-url": "https://common-logon-test.hlth.gov.bc.ca/auth/",
   "ssl-required": "all",
-  "resource": "JAVASCRIPT_CONSOLE",
+  "resource": "PRIMARY-CARE",
   "public-client": true,
   "verify-token-audience": true,
   "use-resource-role-mappings": true,

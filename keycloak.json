@@ -1,6 +1,6 @@
 {
   "realm": "standard",
-  "auth-server-url": "hhttps://dev.loginproxy.gov.bc.ca/auth",
+  "auth-server-url": "https://dev.loginproxy.gov.bc.ca/auth",
   "ssl-required": "all",
   "resource": "delete-me-5615",
   "public-client": true,

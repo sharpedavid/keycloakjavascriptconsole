@@ -1,8 +1,8 @@
 {
-  "realm": "moh_applications",
-  "auth-server-url": "https://common-logon-test.hlth.gov.bc.ca/auth/",
+  "realm": "standard",
+  "auth-server-url": "hhttps://dev.loginproxy.gov.bc.ca/auth",
   "ssl-required": "all",
-  "resource": "JAVASCRIPT_CONSOLE",
+  "resource": "delete-me-5615",
   "public-client": true,
   "verify-token-audience": true,
   "use-resource-role-mappings": true,

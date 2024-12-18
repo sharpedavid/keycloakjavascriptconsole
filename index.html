@@ -83,31 +83,51 @@
 
     // https://www.keycloak.org/docs/latest/server_admin/#retrieving-external-idp-tokens
     function loadIdpToken() {
-        var url = `${keycloak.authServerUrl}realms/${keycloak.realm}/broker/${keycloak.realm}/token`
+        var url = `${keycloak.authServerUrl}realms/${keycloak.realm}/broker/${keycloak.realm}/token`;
         var req = new XMLHttpRequest();
         req.open('GET', url, true);
         req.setRequestHeader('Accept', 'application/json');
         req.setRequestHeader('Content-Type', 'application/json');
-        req.setRequestHeader('Authorization', 'bearer ' + keycloak.token);
+        req.setRequestHeader('Authorization', 'Bearer ' + keycloak.token);
 
         req.onreadystatechange = function () {
             if (req.readyState == 4) {
                 if (req.status == 200) {
-                    let formattedTokens = []
-                    let jsonResponse = JSON.parse(req.response);
-                    for (let v of [jsonResponse.access_token, jsonResponse.id_token]) {
-                        let token = JSON.parse(atob(v.split('.')[1]))
-                        formattedTokens.push(JSON.stringify(token, null, 4))
+                    try {
+                        let jsonResponse = JSON.parse(req.response);
+                        let formattedTokens = [];
+
+                        if (jsonResponse.access_token) {
+                            try {
+                                let token = JSON.parse(atob(jsonResponse.access_token.split('.')[1]));
+                                formattedTokens.push('Access Token:\n\n' + JSON.stringify(token, null, 4));
+                            } catch (e) {
+                                formattedTokens.push('Access Token is opaque and cannot be parsed.');
+                            }
+                        }
+
+                        if (jsonResponse.id_token) {
+                            try {
+                                let token = JSON.parse(atob(jsonResponse.id_token.split('.')[1]));
+                                formattedTokens.push('ID Token:\n\n' + JSON.stringify(token, null, 4));
+                            } catch (e) {
+                                formattedTokens.push('ID Token is opaque and cannot be parsed.');
+                            }
+                        }
+
+                        output(formattedTokens.join('\n\n'));
+                    } catch (e) {
+                        output('Error parsing token response: ' + e.message);
                     }
-                    output('Access token: \n\n' + formattedTokens.join('\n\nID token:\n\n'))
                 } else {
-                    output('Failed');
+                    output('Failed to load IDP tokens. HTTP Status: ' + req.status);
                 }
             }
-        }
+        };
 
-        req.send()
+        req.send();
     }
+
 
 
     function loadUserInfo() {

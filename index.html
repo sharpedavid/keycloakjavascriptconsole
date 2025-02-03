@@ -221,8 +221,7 @@
         responseMode: 'fragment',
         flow: 'standard',
         pkceMethod: 'S256',
-        checkLoginIframe: false,
-        scope: 'offline_access' 
+        checkLoginIframe: false
     };
 
     keycloak.init(initOptions).then(function(authenticated) {

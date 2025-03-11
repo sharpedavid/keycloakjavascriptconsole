@@ -17,7 +17,6 @@
 
 <html>
 <head>
-    <script src="https://common-logon-dev.hlth.gov.bc.ca/auth/js/keycloak.js"></script>
 </head>
 <body>
 
@@ -50,8 +49,11 @@
 <h2>Events</h2>
 <pre style="background-color: #ddd; border: 1px solid #ccc; padding: 10px; word-wrap: break-word; white-space: pre-wrap;" id="events"></pre>
 
+<script type="module">
+    import Keycloak from 'https://cdn.jsdelivr.net/npm/keycloak-js@26.1.3/+esm';
+    window.keycloak = new Keycloak('keycloak.json'); // Attach globally
+    window.output = output;
 
-<script>
     function loadProfile() {
         keycloak.loadUserProfile().then(function(profile) {
             output(profile);
@@ -178,8 +180,6 @@
         var e = document.getElementById('events').innerHTML;
         document.getElementById('events').innerHTML = new Date().toLocaleString() + "\t" + event + "\n" + e;
     }
-
-    var keycloak = new Keycloak();
 
     keycloak.onAuthSuccess = function () {
         event('Auth Success');

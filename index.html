@@ -53,6 +53,7 @@
     import Keycloak from 'https://cdn.jsdelivr.net/npm/keycloak-js@26.1.3/+esm';
     window.keycloak = new Keycloak('keycloak.json'); // Attach globally
     window.output = output;
+    window.loadIdpToken = loadIdpToken;
 
     function loadProfile() {
         keycloak.loadUserProfile().then(function(profile) {

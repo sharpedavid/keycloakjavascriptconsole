@@ -86,7 +86,7 @@
 
     // https://www.keycloak.org/docs/latest/server_admin/#retrieving-external-idp-tokens
     function loadIdpToken() {
-        var url = `${keycloak.authServerUrl}realms/${keycloak.realm}/broker/${keycloak.realm}/token`;
+        var url = `${keycloak.authServerUrl}realms/${keycloak.realm}/broker/bcsc_prime/token`;
         var req = new XMLHttpRequest();
         req.open('GET', url, true);
         req.setRequestHeader('Accept', 'application/json');

@@ -1,8 +1,10 @@
 {
-  "confidential-port": 0,
-  "auth-server-url": "https://dev.loginproxy.gov.bc.ca/auth",
-  "realm": "standard",
-  "ssl-required": "external",
+  "realm": "phsa_aad",
+  "auth-server-url": "https://common-logon-test.hlth.gov.bc.ca/auth/",
+  "ssl-required": "all",
+  "resource": "JAVASCRIPT_CONSOLE",
   "public-client": true,
-  "resource": "delete-me-5615"
+  "verify-token-audience": true,
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
 }

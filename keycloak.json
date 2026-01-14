@@ -1,6 +1,6 @@
 {
   "realm": "idir_aad",
-  "auth-server-url": "https://common-logon.hlth.gov.bc.ca/auth/",
+  "auth-server-url": "https://common-logon-dev.hlth.gov.bc.ca/auth/",
   "ssl-required": "all",
   "resource": "JAVASCRIPT_CONSOLE",
   "public-client": true,
